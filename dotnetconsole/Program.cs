@@ -10,7 +10,12 @@ namespace dotnetconsole
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", false, true)
+                .AddJsonFile
+                (
+                    path: "appsettings.json",
+                    optional: false,
+                    reloadOnChange: true
+                )
                 .AddEnvironmentVariables()
                 .AddCommandLine(args)
                 .Build();
